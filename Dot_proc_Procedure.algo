@@ -1,0 +1,32 @@
+PROCEDURE Dot_product(v1 ,v2: ARRAY_OF INTEGER[10], VAR dot:INTEGER)
+VAR
+    dot , i :INTEGER
+BEGIN
+    dot := 0;
+    i := 0;
+    IF (v1.length<>v2.length) THEN
+        Write("the 2 vectors need to have same length to calculate dot_product")
+    ELSE 
+    FOR i FROM 0 TO v1.length STEP 1  DO
+        dot := dot + v1[i] * v2[i];
+    END_FOR
+END
+
+
+ALGORITHM Check_if_orthogonal
+VAR
+    v1 , v2 : ARRAY_OF INTEGER[10];
+    dot : INTEGER;
+BEGIN
+    Write("write the first vector")
+    Read(v1)
+    Write("write the second vector")
+    Read(v2)
+
+    Dot_product(v1,v2,dot);
+    IF (dot=0) THEN
+        Write("the two vectors are orthogonals")
+    ELSE
+        Write("the two vectors are NOT orthogonals")
+    END_IF
+END
